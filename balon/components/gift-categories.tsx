@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Gift, Heart, Star, Search, Filter, ExternalLink } from "lucide-react"
+import { Gift, Heart, Star, Search, Filter, ExternalLink, Ticket } from "lucide-react"
 
 const giftCategories = [
   {
@@ -63,6 +63,20 @@ const giftCategories = [
       { name: "Inspirational Book Set", price: "$25-50", description: "Books for personal growth", rating: 4.6 },
       { name: "Tech Accessories", price: "$40-120", description: "Laptop stand, wireless charger, etc.", rating: 4.8 },
       { name: "Celebration Dinner", price: "$50-150", description: "Special meal at favorite restaurant", rating: 4.9 },
+    ],
+  },
+  {
+    id: "experiences",
+    title: "Experience Gifts",
+    icon: Ticket,
+    color: "secondary",
+    gifts: [
+      { name: "Concert Tickets", price: "$40-150", description: "Live music night with favorite artist", rating: 4.9 },
+      { name: "Theater Night", price: "$30-90", description: "Tickets to a top-rated play or musical", rating: 4.7 },
+      { name: "Cooking Class for Two", price: "$60-120", description: "Hands-on culinary experience", rating: 4.8 },
+      { name: "Hot Air Balloon Ride", price: "$150-300", description: "Scenic sunrise flight with photos", rating: 4.9 },
+      { name: "Spa Day Pass", price: "$80-200", description: "Relaxing day with sauna and massage", rating: 4.6 },
+      { name: "Museum Pass Bundle", price: "$25-60", description: "Explore multiple museums with a day pass", rating: 4.5 },
     ],
   },
 ]

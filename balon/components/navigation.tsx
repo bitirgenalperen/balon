@@ -14,6 +14,7 @@ export function Navigation() {
   const navigationLinks = [
     { href: "/video-generation", label: "Custom Videos" },
     { href: "/gift-ideas", label: "Gift Ideas" },
+    { href: "/advent", label: "Advent Calendar" },
     { href: "/discover", label: "Discover" },
   ]
 
