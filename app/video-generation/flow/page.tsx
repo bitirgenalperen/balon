@@ -25,6 +25,10 @@ export default function VideoGenerationFlowPage() {
   const [activeIdx, setActiveIdx] = useState<number>(0)
   const active = useMemo<StepKey>(() => steps[activeIdx].key, [activeIdx])
 
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [videoLoading, setVideoLoading] = useState(false);
+  const [videoError, setVideoError] = useState<string | null>(null);
+
   const goNext = () => setActiveIdx((i) => Math.min(i + 1, steps.length - 1))
   const goPrev = () => setActiveIdx((i) => Math.max(i - 1, 0))
 
@@ -179,6 +183,52 @@ export default function VideoGenerationFlowPage() {
                 <div className="space-y-4">
                   <h2 className="text-2xl font-bold text-foreground">Preview</h2>
                   <p className="text-muted-foreground text-sm">Review your selections and proceed to generate.</p>
+
+                  {/* API Test / Video Generation */}
+                  <div className="pt-4 flex flex-col gap-3">
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        onClick={async () => {
+                          setVideoLoading(true);
+                          setVideoError(null);
+
+                          try {
+                            const res = await fetch("/api/generate-vid", {
+                              method: "POST",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({ prompt: "a birthday celebration of a mother" }),
+                            });
+
+                            const data: { videoUrl?: string; detail?: string } = await res.json();
+
+                            if (res.ok && data.videoUrl) {
+                              setVideoUrl(data.videoUrl);
+                            } else {
+                              setVideoError(data.detail || "Failed to generate video");
+                            }
+                          } catch (err: any) {
+                            setVideoError(err.message || "Something went wrong");
+                          } finally {
+                            setVideoLoading(false);
+                          }
+                        }}
+                      >
+                        API Test
+                      </Button>
+                      {videoLoading && <p className="text-muted-foreground">Generating video...</p>}
+                    </div>
+
+                    {videoUrl && (
+                      <div className="mt-4">
+                        <p className="text-foreground font-medium mb-2">Generated Video:</p>
+                        <video src={videoUrl} controls width={400} className="rounded-lg border border-border" />
+                      </div>
+                    )}
+
+                    {videoError && <p className="text-red-500">{videoError}</p>}
+                  </div>
+
                   <div className="pt-4 flex justify-between">
                     <Button variant="outline" onClick={goPrev}>Previous</Button>
                     <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" onClick={goNext}>Generate Demo</Button>
