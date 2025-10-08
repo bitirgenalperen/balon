@@ -12,10 +12,9 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navigationLinks = [
-    { href: "/video-generation", label: "Custom Videos" },
+    { href: "/discover", label: "Discover" },
     { href: "/gift-ideas", label: "Gift Ideas" },
     { href: "/advent", label: "Advent Calendar" },
-    { href: "/discover", label: "Discover" },
   ]
 
   return (
@@ -58,7 +57,7 @@ export function Navigation() {
                 <User className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/video-generation">
+            <Link href="/discover">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">Try Now</Button>
             </Link>
           </div>
@@ -102,7 +101,7 @@ export function Navigation() {
                 )
               })}
               <div className="px-3 py-2">
-                <Link href="/video-generation">
+                <Link href="/discover">
                   <Button
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                     onClick={() => setIsMobileMenuOpen(false)}

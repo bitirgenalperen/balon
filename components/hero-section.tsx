@@ -45,7 +45,7 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Link href="/video-generation">
+          <Link href="/discover">
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4"
@@ -69,7 +69,7 @@ export function HeroSection() {
 
         {/* Services Grid */}
         <div id="services-section" className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Link href="/video-generation">
+          <Link href="/discover">
             <Card className="p-8 hover:bg-card/80 transition-all duration-300 hover:scale-105 cursor-pointer group border-border/50">
               <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6 mx-auto group-hover:bg-primary/20 transition-colors">
                 <Video className="h-8 w-8 text-primary" />
