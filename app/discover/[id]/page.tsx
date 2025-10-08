@@ -173,10 +173,10 @@ export default function VideoEditPage() {
   
   // Initialize selected items based on video data
   const [selectedBackground, setSelectedBackground] = useState<string | null>(
-    video?.background?.find(item => item.selected)?.name || null
+    video?.background?.find((item: any) => item.selected)?.name || null
   )
   const [selectedDecorativeItem, setSelectedDecorativeItem] = useState<string | null>(
-    video?.decorativeItems?.find(item => item.selected)?.name || null
+    video?.decorativeItems?.find((item: any) => item.selected)?.name || null
   )
 
   const handleGenerateVideo = () => {
