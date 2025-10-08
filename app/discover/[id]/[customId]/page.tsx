@@ -249,16 +249,14 @@ export default function CustomGenerationPage() {
               {/* Action Buttons */}
               <div className="space-y-3">
                 {/* Share as Gift Button */}
-                <Button 
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold h-12 gap-3"
-                  onClick={() => {
-                    // Handle share as gift functionality
-                    console.log('Share as gift clicked')
-                  }}
-                >
-                  <Share className="h-5 w-5" />
-                  Share as Gift
-                </Button>
+                <Link href={`/discover/${id}/${customId}/share`}>
+                  <Button 
+                    className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold h-12 gap-3"
+                  >
+                    <Share className="h-5 w-5" />
+                    Share as Gift
+                  </Button>
+                </Link>
 
                 {/* Download Video Button */}
                 <Button 
